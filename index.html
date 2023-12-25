@@ -6,28 +6,69 @@
     </head>
     <body>
         <canvas id = "win" width="400" height="400"></canvas>
-        <p id = "tim">Time remaining 10s</p>
+        <p id = "tim">Time remaining: 30</p>
+        <p id = "score">Score: 0</p>
         <script>
+            function randomNumber(min, max) {
+                return Math.floor(Math.random() * (max - min) ) + min;
+            }
+            var round = 0;
+            var a_t = 30;
+            var score = 0;
             var i = 0
-            var t = 10;
+            var t = 30;
             canvas = document.getElementById("win");
             const ctx = canvas.getContext("2d");
             const p = {size:20, x:0, y:canvas.width-20,};
-            //canvas.height
-            //canvas.width
+            var game = true;
+            
+            var k = randomNumber(0, canvas.height-p.size/2)
+            var j = randomNumber(0, canvas.width-p.size/2)
+            console.log(k,j)
+
+
+
             function frame()
             {
+                if (game == true)
+                {
                 i++;
-                if (i==50)
+                if (i==100)
                 {
                     t--;
                     document.getElementById("tim").innerHTML="Time remaining: " + t;
                     i=0;
                 }
+                if (t==0)
+                {
+                   game = false;
+                }
                 ctx.fillStyle = "#FFFFFF";
                 ctx.fillRect(0, 0, canvas.width, canvas.height );
+
+                ctx.fillStyle = "#FFFF00";
+                ctx.fillRect(j, k, p.size/2, p.size/2 );
+
                 ctx.fillStyle = "#FF0000";
-                ctx.fillRect(p.x, p.y, p.size, p.size );
+                ctx.fillRect(p.x, p.y, p.size+score, p.size+score );
+
+                if (j >= p.x && j <=p.x+p.size && k <= p.y && k >=p.y-p.size) 
+                {
+                    k = randomNumber(0, canvas.height-p.size/2);
+                    j = randomNumber(0, canvas.width-p.size/2);
+                    score++;
+                    t=a_t;
+                    document.getElementById("tim").innerHTML="Time remaining: " + t;
+                    document.getElementById("score").innerHTML="Score: " + score;
+                    round++;
+                };
+
+                if (round==10)
+                {
+                    a_t--;
+                    round=0;
+                }
+
                 document.onkeypress = function (e) {
                     e = e || window.event;
                     if (e.keyCode==97)
@@ -47,7 +88,13 @@
                     {
                         p.y+=2;
                     }
-                };
+                }
+                }
+                else
+                {
+                    ctx.fillStyle = "#000000";
+                    ctx.fillRect(0, 0, canvas.width, canvas.height );
+                }
             }
             setInterval(frame, 20);
 
