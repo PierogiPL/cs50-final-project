@@ -6,22 +6,51 @@
     </head>
     <body>
         <canvas id = "win" width="400" height="400"></canvas>
+        <p id = "tim">Time remaining 10s</p>
         <script>
+            var i = 0
+            var t = 10;
             canvas = document.getElementById("win");
             const ctx = canvas.getContext("2d");
-            const p = {x:1, y:1, size:20};
+            const p = {size:20, x:0, y:canvas.width-20,};
             //canvas.height
             //canvas.width
             function frame()
             {
+                i++;
+                if (i==50)
+                {
+                    t--;
+                    document.getElementById("tim").innerHTML="Time remaining: " + t;
+                    i=0;
+                }
                 ctx.fillStyle = "#FFFFFF";
                 ctx.fillRect(0, 0, canvas.width, canvas.height );
                 ctx.fillStyle = "#FF0000";
                 ctx.fillRect(p.x, p.y, p.size, p.size );
-                if (p.y<canvas.height-2-p.size)
-                p.y+=2;
+                document.onkeypress = function (e) {
+                    e = e || window.event;
+                    if (e.keyCode==97)
+                    {
+                        p.x-=2;
+                    }
+                    if (e.keyCode==100)
+                    {
+                        p.x+=2;
+                    }
+
+                    if (e.keyCode==119)
+                    {
+                        p.y-=2;
+                    }
+                    if (e.keyCode==115)
+                    {
+                        p.y+=2;
+                    }
+                };
             }
             setInterval(frame, 20);
+
         </script>
     </body>
 </html>
