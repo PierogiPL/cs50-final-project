@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="style.css" type="text/css">
-        <title>Game<title>
+        <link rel="stylesheet" href="style.css">
+        <title>Game</title>
     </head>
     <body>
-        <canvas id = "window" width="100px" height="100px"></canvas>
+        <canvas id = "win" width="400" height="400"></canvas>
         <script>
+            canvas = document.getElementById("win");
+            const ctx = canvas.getContext("2d");
+            const p = {x:1, y:1, size:20};
+            //canvas.height
+            //canvas.width
+            function frame()
+            {
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fillRect(0, 0, canvas.width, canvas.height );
+                ctx.fillStyle = "#FF0000";
+                ctx.fillRect(p.x, p.y, p.size, p.size );
+                if (p.y<canvas.height-2-p.size)
+                p.y+=2;
+            }
+            setInterval(frame, 20);
         </script>
     </body>
 </html>
