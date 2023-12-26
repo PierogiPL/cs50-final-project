@@ -34,8 +34,8 @@
             const p = {size:20, x:0, y:canvas.width-20,};
             var game = false;
             
-            var k = randomNumber(0, canvas.height-p.size/2)
-            var j = randomNumber(0, canvas.width-p.size/2)
+            var k = randomNumber(0, canvas.height-p.size/2-score)
+            var j = randomNumber(0, canvas.width-p.size/2-score)
             console.log(k,j)
 
 
@@ -76,8 +76,8 @@
 
                 if (ctx.isPointInPath(sq, j+(p.size+score)/4, k+(p.size+score)/4)) 
                 {
-                    k = randomNumber(0, canvas.height-p.size/2);
-                    j = randomNumber(0, canvas.width-p.size/2);
+                    k = randomNumber(0, canvas.height-p.size/2-score);
+                    j = randomNumber(0, canvas.width-p.size/2-score);
                     score++;
                     t=a_t;
                     document.getElementById("tim").innerHTML="Time remaining: " + t;
@@ -95,20 +95,20 @@
                     e = e || window.event;
                     if (e.keyCode==97)
                     {
-                        p.x-=2;
+                        if (p.x > 0) p.x-=2;
                     }
                     if (e.keyCode==100)
                     {
-                        p.x+=2;
+                        if (p.x < canvas.width-p.size-score) p.x+=2;
                     }
 
                     if (e.keyCode==119)
                     {
-                        p.y-=2;
+                        if (p.y > 0)p.y-=2;
                     }
                     if (e.keyCode==115)
                     {
-                        p.y+=2;
+                        if (p.y < canvas.height-p.size-score) p.y+=2;
                     }
                 }
                 }
