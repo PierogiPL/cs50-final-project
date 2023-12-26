@@ -6,9 +6,17 @@
     </head>
     <body>
         <canvas id = "win" width="400" height="400"></canvas>
+        <button onClick="start()">Start</button>
         <p id = "tim">Time remaining: 30</p>
         <p id = "score">Score: 0</p>
+        <p id = "h_score">High Score: 0</p>
         <script>
+            var h_score = 0;
+            function start()
+            {
+                game = true;
+                score = 0;
+            }
             function randomNumber(min, max) {
                 return Math.floor(Math.random() * (max - min) ) + min;
             }
@@ -20,7 +28,7 @@
             canvas = document.getElementById("win");
             const ctx = canvas.getContext("2d");
             const p = {size:20, x:0, y:canvas.width-20,};
-            var game = true;
+            var game = false;
             
             var k = randomNumber(0, canvas.height-p.size/2)
             var j = randomNumber(0, canvas.width-p.size/2)
@@ -42,17 +50,27 @@
                 if (t==0)
                 {
                    game = false;
+                   if (score > h_score)
+                   {
+                        h_score=score
+                        document.getElementById("h_score").innerHTML="High Score: " + score;
+                   }
                 }
                 ctx.fillStyle = "#FFFFFF";
                 ctx.fillRect(0, 0, canvas.width, canvas.height );
 
                 ctx.fillStyle = "#FFFF00";
-                ctx.fillRect(j, k, p.size/2, p.size/2 );
+                ctx.fillRect(j, k, (p.size+score)/2, (p.size+score)/2 );
 
                 ctx.fillStyle = "#FF0000";
                 ctx.fillRect(p.x, p.y, p.size+score, p.size+score );
 
-                if (j >= p.x && j <=p.x+p.size && k <= p.y && k >=p.y-p.size) 
+                const sq = new Path2D();
+                    sq.rect(p.x, p.y, p.size+score, p.size+score );
+                    ctx.fillStyle = "red";
+                    ctx.fill(sq);
+
+                if (ctx.isPointInPath(sq, j+(p.size+score)/4, k+(p.size+score)/4)) 
                 {
                     k = randomNumber(0, canvas.height-p.size/2);
                     j = randomNumber(0, canvas.width-p.size/2);
