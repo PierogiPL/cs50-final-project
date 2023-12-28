@@ -24,7 +24,7 @@ The JavaScript code contains three functions:
     d\) Displaying game over screen and updating High Score if necesary.\
 \- randomNumber() - this function generates a random number, its used to make the **Coin** move but for it to never go past the \<canvas\> border.
 #### Design Decisions:
-Due to the limitations imposed by using '**<canvas>**' as the game window, I opted for a minimalistic art style featuring simple shapes.\
+Due to the limitations imposed by using '**\<canvas\>**' as the game window, I opted for a minimalistic art style featuring simple shapes.\
 The object controlled by the player was always meant to be a **Red Cube** but the **Coin** went through a few different designs.\
 Originaly the **Coin** was meant to be circular but I decided agains it to keep it consistant with the player being a cube.\
 At some point both the **Cube** and the **Coin** were meant to be replaced by sprites.\
