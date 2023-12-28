@@ -13,6 +13,15 @@ In this game you controll a **Red Cube** and your goal is to collect yellow **Co
 **The Cube** is realy slow and, you can only move in the four cardinal directions. The game contains a time limit, but its not challenging.\
 You start off by having 30 seconds to reach the **Coin**. Every coin collected makes both the **Cube** and the **Coin** bigger. Collecting a **Coin** resets the timer. But every 5th **Coin** collected shortens the timer by 1 second.\
 If you run out of time the game ends and your score is displayed on screen <sub>(your score being the number of coins you collected)</sub>. If necesary your high score may be updated.\
+#### How the game works:
+The JavaScript code contains 3 functions:
+\- start() - this function is called when the start button is pressed allowing the game to begin.
+\- frame() - this function is executed every 20 miliseconds. Its goals are:
+    a\) Drawing the **Red Cube** and **Coin** on screen in the right position\
+    b\) Detecting if **Red Cube** is touching the **Coin** and updating the score and timer if they are\
+    c\) Handling input from the player (W,A,S,D keys)\
+    d\) Displaying game over screen and updating High Score if necesary.\
+\- randomNumber() - this function generates a random number, its used to make the **Coin** move but for it to never go past the \<canvas\> border.
 #### Design Decisions:
 The object controlled by the player was always meant to be a **Red Cube** but the **Coin** went through a few different designs.\
 Originaly the **Coin** was meant to be circular but I decided agains it to keep it consistant with the player being a cube.\
