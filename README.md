@@ -15,7 +15,7 @@ You start off by having 30 seconds to reach the **Coin**. Every coin collected m
 If you run out of time the game ends and your score is displayed on screen <sub>(your score being the number of coins you collected)</sub>. If necesary your high score may be updated.\
 #### How the game works:
 The JavaScript code contains 3 functions:
-\- start() - this function is called when the start button is pressed allowing the game to begin.
+\- start() - this function is called when the start button is pressed allowing the game to begin.\
 \- frame() - this function is executed every 20 miliseconds. Its goals are:
     a\) Drawing the **Red Cube** and **Coin** on screen in the right position\
     b\) Detecting if **Red Cube** is touching the **Coin** and updating the score and timer if they are\
