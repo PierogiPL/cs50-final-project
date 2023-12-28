@@ -28,4 +28,4 @@ Due to the limitations imposed by using '**\<canvas\>**' as the game window, I o
 The object controlled by the player was always meant to be a **Red Cube** but the **Coin** went through a few different designs.\
 Originaly the **Coin** was meant to be circular but I decided agains it to keep it consistant with the player being a cube.\
 At some point both the **Cube** and the **Coin** were meant to be replaced by sprites.\
-I wasnt able to get that to work correctly with '**\<canvas\>**'' so i decided agains it.
+I wasnt able to get that to work correctly with '**\<canvas\>**' so i decided agains it.
