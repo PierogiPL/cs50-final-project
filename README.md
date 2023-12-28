@@ -6,3 +6,4 @@ This project is made out of 3 files:
     \- **index.html** - containing the basic page layout and elements like **\<canvas\>** and **\<button\>**.\
     \- **script.js** - contains all the **JavaScript** code necesary for the game to run.\
     \- **style.css** - style sheet - mostly used to center elements on the page and add a border around the game window.\
+In this game you controll a **Red Cube** `#FF0000` and your goal is to collect yellow **Coins** `#FFFF00`
