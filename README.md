@@ -1,5 +1,5 @@
 # Red Cube : The Simple Browser Game
-#### Video Demo:  <URL HERE>
+#### Video Demo:  [Click here](https://youtu.be/zTgSpoYH-IE)
 #### Description:
 Red cube is a Browser Game created using HTML, JavaScript and a little bit of CSS.\
 It was originally supposed to be a remake of Problem Set 0 but made in JavaScript, instead of Scratch. 
